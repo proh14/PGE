@@ -2,19 +2,27 @@ package me.proh14.pge.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import me.proh14.pge.Main;
+import javafx.stage.Stage;
+import me.proh14.pge.encryptions.XOREncryption;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainViewCont implements Initializable {
+
+    @FXML
+    private VBox root;
 
     @FXML
     private PasswordField codeFiled;
@@ -27,39 +35,23 @@ public class MainViewCont implements Initializable {
 
     private final ImageView closedEye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/closed-eye.png")).toExternalForm());
 
+    private Scene encryptScene;
+
     public void onEncryptBtn(ActionEvent e) {
-        Main.setToEncryptionScene();
+        if (codeMask.isSelected())
+            XOREncryption.getInstance().setKey(Long.parseLong(codeText.getText()));
+        else
+            XOREncryption.getInstance().setKey(Long.parseLong(codeFiled.getText()));
+        System.out.println(XOREncryption.getInstance().getKey());
+        if (encryptScene != null) {
+            Stage stage = ((Stage) root.getScene().getWindow());
+            stage.setScene(encryptScene);
+            stage.sizeToScene();
+        }
     }
 
     public void onDecryptBtn(ActionEvent e) {
 
-
-    }
-
-    public void onCodeField(ActionEvent e) {
-        
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.initOwner(Main.getStage());
-
-        try {
-            if (e.getSource() == codeFiled) {
-                Main.setKey(Long.parseLong(codeFiled.getText()));
-
-                alert.setAlertType(Alert.AlertType.INFORMATION);
-                alert.setTitle("PGE");
-                alert.setHeaderText("Done");
-                alert.setContentText("The encryption key was successfully set");
-                alert.showAndWait();
-            } else {
-                Main.setKey(Long.parseLong(codeFiled.getText()));
-            }
-        } catch (Exception x) {
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setTitle("PGE");
-            alert.setHeaderText("Something went wrong...");
-            alert.setContentText("Please enter a valid number");
-            alert.showAndWait();
-        }
 
     }
 
@@ -92,7 +84,6 @@ public class MainViewCont implements Initializable {
                 return c;
 
             return null;
-
         }));
 
         codeText.setTextFormatter(new TextFormatter<>(c -> {
@@ -102,7 +93,13 @@ public class MainViewCont implements Initializable {
                 return c;
 
             return null;
-
         }));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/me/proh14/pge/FXMLFiles/EncryptionView.fxml"));
+        try {
+            encryptScene = new Scene(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

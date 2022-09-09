@@ -12,57 +12,56 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.EncryptionViewCont">
-   <children>
-      <MenuBar prefHeight="31.0" prefWidth="747.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem disable="true" mnemonicParsing="false" text="Undo Encryption" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <TextArea focusTraversable="false" prefHeight="411.0" prefWidth="796.0" promptText="Enter The text you want to encrypt here or use File Picker">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextArea>
-      <HBox alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="Paste">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Region HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="Encrypt">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Region HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="File picker">
-               <font>
-                  <Font size="11.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </HBox>
-   </children>
+<VBox xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.EncryptionViewCont">
+    <children>
+        <MenuBar maxWidth="-Infinity" prefHeight="26.0" prefWidth="795.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem disable="true" mnemonicParsing="false" text="Undo Encryption" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TextArea focusTraversable="false" prefHeight="411.0" prefWidth="796.0" promptText="Enter The text you want to encrypt here or use File Picker">
+            <font>
+                <Font size="20.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </TextArea>
+        <HBox alignment="CENTER">
+            <children>
+                <Button fx:id="paste" mnemonicParsing="false" onAction="#onPaste" prefHeight="38.0" prefWidth="67.0" text="Paste">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="encrypt" mnemonicParsing="false" onAction="#onEncrypt" prefHeight="38.0" prefWidth="67.0" text="Encrypt">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0" prefWidth="67.0" text="File picker">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </HBox>
+    </children>
 </VBox>

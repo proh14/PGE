@@ -9,11 +9,10 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="287.0" prefWidth="233.0" spacing="8.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.MainViewCont">
+<VBox fx:id="root" alignment="CENTER" prefHeight="287.0" prefWidth="233.0" spacing="8.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.MainViewCont">
    <children>
-      <Button fx:id="encryptBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEncryptBtn" prefHeight="45.0" text="Encrypt">
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEncryptBtn" prefHeight="45.0" text="Encrypt">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -21,7 +20,7 @@
             <Glow level="0.0" />
          </effect>
       </Button>
-      <Button fx:id="decryptBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDecryptBtn" prefHeight="45.0" text="Decrypt">
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDecryptBtn" prefHeight="45.0" text="Decrypt">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -32,11 +31,7 @@
       <StackPane>
          <children>
             <TextField fx:id="codeText" prefHeight="40.0" prefWidth="180.0" promptText="Enter Encryption Key" />
-            <PasswordField fx:id="codeFiled" onAction="#onCodeField" prefHeight="40.0" prefWidth="180.0" promptText="Enter Encryption Key">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </PasswordField>
+            <PasswordField fx:id="codeFiled" prefHeight="40.0" prefWidth="180.0" promptText="Enter Encryption Key"/>
             <ToggleButton fx:id="codeMask" focusTraversable="false" mnemonicParsing="false" StackPane.alignment="CENTER_RIGHT" />
          </children>
       </StackPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="489.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.EncryptionViewCont">
+   <children>
+      <Button layoutX="14.0" layoutY="445.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="Paste">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="359.0" layoutY="445.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="Encrypt">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="706.0" layoutY="445.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="File picker">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextArea focusTraversable="false" layoutX="-8.0" layoutY="28.0" prefHeight="411.0" prefWidth="796.0" promptText="Enter The text you want to encrypt here or use File Picker">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextArea>
+      <MenuBar layoutX="41.0" layoutY="-3.0" prefHeight="31.0" prefWidth="747.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem disable="true" mnemonicParsing="false" text="Undo Encryption" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button layoutY="-3.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="42.0" text="Button" />
+   </children>
+</AnchorPane>

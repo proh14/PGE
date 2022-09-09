@@ -2,7 +2,15 @@ package me.proh14.pge.encryptions;
 
 public class XOREncryption {
 
-    private static final long key = 1111111111111111L;
+    private static long key = 1111111111111111L;
+
+    public static void setKey(Long l){
+        key = l;
+    }
+    public static Long getKey(){
+
+        return key;
+    }
 
     public static String Encrypt(String input) {
         StringBuilder encrypted = new StringBuilder();

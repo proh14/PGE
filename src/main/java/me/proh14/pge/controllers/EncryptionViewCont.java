@@ -8,8 +8,10 @@ public class EncryptionViewCont {
 
     @FXML
     public Button encrypt;
+
     @FXML
     public Button paste;
+
     @FXML
     public Button filePicker;
 

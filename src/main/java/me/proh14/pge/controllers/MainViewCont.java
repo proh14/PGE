@@ -26,8 +26,10 @@ public class MainViewCont implements Initializable {
 
     @FXML
     private PasswordField codeFiled;
+
     @FXML
     private ToggleButton codeMask;
+
     @FXML
     private TextField codeText;
 
@@ -38,6 +40,12 @@ public class MainViewCont implements Initializable {
     private Scene encryptScene;
 
     public void onEncryptBtn(ActionEvent e) {
+        if ((codeMask.isSelected() && codeText.getText().isEmpty()) || (!codeMask.isSelected() && codeFiled.getText().isEmpty())) {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR, "key is empty", ButtonType.OK);
+            errorAlert.show();
+            return;
+        }
+
         if (codeMask.isSelected())
             XOREncryption.getInstance().setKey(Long.parseLong(codeText.getText()));
         else

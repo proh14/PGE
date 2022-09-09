@@ -9,7 +9,6 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox fx:id="root" alignment="CENTER" prefHeight="287.0" prefWidth="233.0" spacing="8.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.MainViewCont">
    <children>

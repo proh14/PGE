@@ -2,7 +2,6 @@ package me.proh14.pge.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -29,23 +28,21 @@ public class EncryptionViewCont {
     public void onPaste(ActionEvent event) {
 
 
-
     }
 
     public void onEncrypt(ActionEvent event) {
 
-        if(!isEncrypted && inputText.getText() != null){
-        undoEncryption.setDisable(false);
-        inputText.setDisable(true);
-        copyPaste.setText("Copy");
-        encrypt.setText("Open Decryptor");
-        filePicker.setText("Save to file");
-        inputText.setText(XOREncryption.getInstance().encryptDecrypt(inputText.getText()));
-        isEncrypted = true;
-        }
-        else {
+        if (!isEncrypted && inputText.getText() != null) {
+            undoEncryption.setDisable(false);
+            inputText.setDisable(true);
+            copyPaste.setText("Copy");
+            encrypt.setText("Open Decryptor");
+            filePicker.setText("Save to file");
+            inputText.setText(XOREncryption.getInstance().encryptDecrypt(inputText.getText()));
+            isEncrypted = true;
+        } else {
             isEncrypted = false;
-            Stage stage = (Stage)encrypt.getScene().getWindow();
+            Stage stage = (Stage) encrypt.getScene().getWindow();
             stage.setTitle("PGE - Decryptor");
             stage.setScene(Main.getDecryptionScene());
             stage.sizeToScene();

@@ -29,7 +29,7 @@ public class DecryptionViewCont {
     }
 
     public void onDecrypt(ActionEvent event) {
-        if(!isDecrypted && inputText.getText() != null){
+        if (!isDecrypted && inputText.getText() != null) {
             undoDecryption.setDisable(false);
             inputText.setDisable(true);
             copyPaste.setText("Copy");
@@ -37,9 +37,8 @@ public class DecryptionViewCont {
             filePicker.setText("Save to file");
             inputText.setText(XOREncryption.getInstance().encryptDecrypt(inputText.getText()));
             isDecrypted = true;
-        }
-        else  {
-            Stage stage = (Stage)decrypt.getScene().getWindow();
+        } else {
+            Stage stage = (Stage) decrypt.getScene().getWindow();
             stage.setScene(Main.getDecryptionScene());
             stage.setTitle("PGE - Decryptor");
             stage.sizeToScene();

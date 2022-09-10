@@ -2,9 +2,7 @@ package me.proh14.pge.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -15,30 +13,22 @@ import javafx.stage.Stage;
 import me.proh14.pge.Main;
 import me.proh14.pge.encryptions.XOREncryption;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainViewCont implements Initializable {
 
+    private final ImageView eye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/eye.png")).toExternalForm());
+    private final ImageView closedEye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/closed-eye.png")).toExternalForm());
     @FXML
     private VBox root;
-
     @FXML
     private PasswordField codeFiled;
-
     @FXML
     private ToggleButton codeMask;
-
     @FXML
     private TextField codeText;
-
-    private final ImageView eye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/eye.png")).toExternalForm());
-
-    private final ImageView closedEye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/closed-eye.png")).toExternalForm());
-
-
 
     public void onEncryptBtn(ActionEvent e) {
         if ((codeMask.isSelected() && codeText.getText().isEmpty()) || (!codeMask.isSelected() && codeFiled.getText().isEmpty())) {
@@ -125,9 +115,6 @@ public class MainViewCont implements Initializable {
 
             return null;
         }));
-
-
-
 
 
     }

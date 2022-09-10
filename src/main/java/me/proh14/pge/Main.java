@@ -17,6 +17,24 @@ public class Main extends Application {
 
     private static Stage stage;
 
+    public static void setToMainScene() {
+        stage.setScene(mainScene);
+        stage.centerOnScreen();
+        stage.sizeToScene();
+    }
+
+    public static Scene getDecryptionScene() {
+
+        return decryptionScene;
+
+    }
+
+    public static Scene getEncryptionScene() {
+
+        return encryptionScene;
+
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
@@ -27,32 +45,14 @@ public class Main extends Application {
         stage.setTitle("PGE");
         FXMLLoader decryptionLoader = new FXMLLoader(getClass().getResource("FXMLFiles/DecryptionView.fxml"));
         FXMLLoader encryptionLoader = new FXMLLoader(getClass().getResource("FXMLFiles/EncryptionView.fxml"));
-        this.decryptionScene = new Scene(decryptionLoader.load());
-        this.encryptionScene = new Scene(encryptionLoader.load());
+        decryptionScene = new Scene(decryptionLoader.load());
+        encryptionScene = new Scene(encryptionLoader.load());
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void setToMainScene() {
-        stage.setScene(mainScene);
-        stage.centerOnScreen();
-        stage.sizeToScene();
-    }
-
-    public static Scene getDecryptionScene(){
-
-        return decryptionScene;
-
-    }
-
-    public static Scene getEncryptionScene(){
-
-        return encryptionScene;
-
-    }
-
-
     public static void main(String[] args) {
         launch();
     }
+
 }

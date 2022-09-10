@@ -12,6 +12,8 @@ import java.util.Objects;
 public class Main extends Application {
 
     private static Scene mainScene;
+    private static Scene encryptionScene;
+    private static Scene decryptionScene;
 
     private static Stage stage;
 
@@ -23,15 +25,32 @@ public class Main extends Application {
         Main.mainScene = scene;
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("Images/ApplicationIcons/50x50.png")).toExternalForm()));
         stage.setTitle("PGE");
-
+        FXMLLoader decryptionLoader = new FXMLLoader(getClass().getResource("FXMLFiles/DecryptionView.fxml"));
+        FXMLLoader encryptionLoader = new FXMLLoader(getClass().getResource("FXMLFiles/EncryptionView.fxml"));
+        this.decryptionScene = new Scene(decryptionLoader.load());
+        this.encryptionScene = new Scene(encryptionLoader.load());
         stage.setScene(scene);
         stage.show();
     }
 
     public static void setToMainScene() {
         stage.setScene(mainScene);
+        stage.centerOnScreen();
         stage.sizeToScene();
     }
+
+    public static Scene getDecryptionScene(){
+
+        return decryptionScene;
+
+    }
+
+    public static Scene getEncryptionScene(){
+
+        return encryptionScene;
+
+    }
+
 
     public static void main(String[] args) {
         launch();

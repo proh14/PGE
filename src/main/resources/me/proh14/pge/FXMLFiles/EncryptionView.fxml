@@ -7,12 +7,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.EncryptionViewCont">
+<VBox xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.EncryptionViewCont">
     <children>
         <MenuBar maxWidth="-Infinity" prefHeight="26.0" prefWidth="795.0">
             <menus>
@@ -23,12 +24,15 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem disable="true" mnemonicParsing="false" text="Undo Encryption" />
+                        <MenuItem fx:id="undoEncryption" disable="true" mnemonicParsing="false" onAction="#onUndoEncryption" text="Undo Encryption">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <TextArea focusTraversable="false" prefHeight="411.0" prefWidth="796.0" promptText="Enter The text you want to encrypt here or use File Picker">
+        <TextArea fx:id="inputText" focusTraversable="false" prefHeight="411.0" prefWidth="796.0" promptText="Enter The text you want to encrypt here or use File Picker">
             <font>
                 <Font size="20.0" />
             </font>
@@ -38,19 +42,22 @@
         </TextArea>
         <HBox alignment="CENTER">
             <children>
-                <Button fx:id="paste" mnemonicParsing="false" onAction="#onPaste" prefHeight="38.0" text="Paste">
+                <Button fx:id="copyPaste" mnemonicParsing="false" onAction="#onPaste" prefHeight="38.0" prefWidth="67.0" text="Paste">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="encrypt" mnemonicParsing="false" onAction="#onEncrypt" prefHeight="38.0" text="Encrypt">
+                <Button fx:id="encrypt" mnemonicParsing="false" onAction="#onEncrypt" prefHeight="38.0" prefWidth="67.0" text="Encrypt">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0" text="File picker">
+                <Region prefHeight="38.0" prefWidth="4.0" HBox.hgrow="ALWAYS" />
+                <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0" prefWidth="90.0" text="Open from file">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

@@ -12,6 +12,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import me.proh14.pge.Main;
 import me.proh14.pge.encryptions.XOREncryption;
 
 import java.io.IOException;
@@ -37,11 +38,12 @@ public class MainViewCont implements Initializable {
 
     private final ImageView closedEye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/closed-eye.png")).toExternalForm());
 
-    private Scene encryptScene;
+
 
     public void onEncryptBtn(ActionEvent e) {
         if ((codeMask.isSelected() && codeText.getText().isEmpty()) || (!codeMask.isSelected() && codeFiled.getText().isEmpty())) {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR, "key is empty", ButtonType.OK);
+            errorAlert.initOwner(root.getScene().getWindow());
             errorAlert.show();
             return;
         }
@@ -51,14 +53,35 @@ public class MainViewCont implements Initializable {
         else
             XOREncryption.getInstance().setKey(Long.parseLong(codeFiled.getText()));
         System.out.println(XOREncryption.getInstance().getKey());
-        if (encryptScene != null) {
+        if (Main.getEncryptionScene() != null) {
             Stage stage = ((Stage) root.getScene().getWindow());
-            stage.setScene(encryptScene);
+            stage.setScene(Main.getEncryptionScene());
+            stage.setTitle("PGE - Encryptor");
+            stage.centerOnScreen();
             stage.sizeToScene();
         }
     }
 
     public void onDecryptBtn(ActionEvent e) {
+        if ((codeMask.isSelected() && codeText.getText().isEmpty()) || (!codeMask.isSelected() && codeFiled.getText().isEmpty())) {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR, "key is empty", ButtonType.OK);
+            errorAlert.initOwner(root.getScene().getWindow());
+            errorAlert.show();
+            return;
+        }
+
+        if (codeMask.isSelected())
+            XOREncryption.getInstance().setKey(Long.parseLong(codeText.getText()));
+        else
+            XOREncryption.getInstance().setKey(Long.parseLong(codeFiled.getText()));
+        System.out.println(XOREncryption.getInstance().getKey());
+        if (Main.getEncryptionScene() != null) {
+            Stage stage = ((Stage) root.getScene().getWindow());
+            stage.setTitle("PGE - Decryptor");
+            stage.setScene(Main.getEncryptionScene());
+            stage.centerOnScreen();
+            stage.sizeToScene();
+        }
 
 
     }
@@ -103,11 +126,10 @@ public class MainViewCont implements Initializable {
             return null;
         }));
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/me/proh14/pge/FXMLFiles/EncryptionView.fxml"));
-        try {
-            encryptScene = new Scene(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
+
+
     }
+
 }

@@ -12,19 +12,15 @@ public final class XOREncryption {
         return instance;
     }
 
-    public String encrypt(String input) {
-        StringBuilder encrypted = new StringBuilder();
-        for (int i = 0; i < input.length(); i++)
-            encrypted.append(input.charAt(i) ^ key);
-        return encrypted.toString();
+    public String encryptDecrypt(String input) {
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            output.append(Character.toString((char) (input.charAt(i) ^ key)));
+        }
+        return output.toString();
     }
 
-    public String decrypt(String input) {
-        StringBuilder decrypted = new StringBuilder();
-        for (int i = 0; i < input.length(); i++)
-            decrypted.append(input.charAt(i) ^ key);
-        return decrypted.toString();
-    }
+
 
     public void setKey(long key) {
         this.key = key;

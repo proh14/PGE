@@ -15,7 +15,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.DecryptionViewCont">
     <children>
-        <MenuBar maxWidth="-Infinity" prefHeight="26.0" prefWidth="795.0">
+        <MenuBar>
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
@@ -33,7 +33,7 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <TextArea fx:id="inputText" focusTraversable="false" prefHeight="411.0" prefWidth="796.0" promptText="Enter The text you want to decrypt here or use File Picker">
+        <TextArea fx:id="inputText" focusTraversable="false" prefHeight="411.0" promptText="Enter The text you want to decrypt here or use File Picker" VBox.vgrow="ALWAYS">
             <font>
                 <Font size="20.0" />
             </font>
@@ -43,7 +43,7 @@
         </TextArea>
         <HBox alignment="CENTER">
             <children>
-                <Button fx:id="copyPaste" mnemonicParsing="false" onAction="#onPaste" prefHeight="38.0" text="Paste">
+                <Button fx:id="copyPaste" mnemonicParsing="false" onAction="#onCopyPaste" prefHeight="38.0" text="Paste">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -54,7 +54,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Region prefHeight="38.0" prefWidth="4.0" HBox.hgrow="ALWAYS" />
+                <Region HBox.hgrow="ALWAYS" />
                 <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0" text="Open from file">
                     <cursor>
                         <Cursor fx:constant="HAND" />

@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import me.proh14.pge.Main;
 import me.proh14.pge.encryptions.XOREncryption;
@@ -25,13 +27,20 @@ public class EncryptionViewCont {
 
     private boolean isEncrypted = false;
 
-    public void onPaste(ActionEvent event) {
+    public void onCopyPaste(ActionEvent event) {
+        Clipboard clipboard = Clipboard.getSystemClipboard();
+        if (!isEncrypted) {
+            if (clipboard.hasString())
+                inputText.setText(clipboard.getString());
+        }else {
+            ClipboardContent content = new ClipboardContent();
+            content.putString(inputText.getText());
 
-
+            clipboard.setContent(content);
+        }
     }
 
     public void onEncrypt(ActionEvent event) {
-
         if (!isEncrypted && inputText.getText() != null) {
             undoEncryption.setDisable(false);
             inputText.setDisable(true);
@@ -71,6 +80,5 @@ public class EncryptionViewCont {
         copyPaste.setText("Paste");
         filePicker.setText("Open from file");
         undoEncryption.setDisable(true);
-
     }
 }

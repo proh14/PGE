@@ -74,6 +74,7 @@ public class DecryptionViewCont {
         copyPaste.setText("Paste");
         filePicker.setText("Open from file");
         undoDecryption.setDisable(true);
+        isDecrypted = false;
     }
 
     public void onClose(ActionEvent event) {

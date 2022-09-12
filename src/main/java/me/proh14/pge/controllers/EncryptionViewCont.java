@@ -80,5 +80,6 @@ public class EncryptionViewCont {
         copyPaste.setText("Paste");
         filePicker.setText("Open from file");
         undoEncryption.setDisable(true);
+        isEncrypted = false;
     }
 }

@@ -13,66 +13,56 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="me.proh14.pge.controllers.DecryptionViewCont">
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.DecryptionViewCont">
     <children>
         <MenuBar maxWidth="-Infinity" prefHeight="26.0" prefWidth="795.0">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#onClose" text="Close"/>
+                        <MenuItem mnemonicParsing="false" onAction="#onClose" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem fx:id="undoDecryption" disable="true" mnemonicParsing="false"
-                                  onAction="#onUndoDecryption" text="Undo Decryption">
+                        <MenuItem fx:id="undoDecryption" disable="true" mnemonicParsing="false" onAction="#onUndoDecryption" text="Undo Decryption">
                             <accelerator>
-                                <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP"
-                                                    shortcut="UP"/>
+                                <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
                         </MenuItem>
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <TextArea fx:id="inputText" focusTraversable="false" prefHeight="411.0" prefWidth="796.0"
-                  promptText="Enter The text you want to decrypt here or use File Picker">
+        <TextArea fx:id="inputText" focusTraversable="false" prefHeight="411.0" prefWidth="796.0" promptText="Enter The text you want to decrypt here or use File Picker">
             <font>
-                <Font size="20.0"/>
+                <Font size="20.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="TEXT"/>
+                <Cursor fx:constant="TEXT" />
             </cursor>
         </TextArea>
         <HBox alignment="CENTER">
             <children>
-                <Button fx:id="copyPaste" mnemonicParsing="false" onAction="#onPaste" prefHeight="38.0" prefWidth="67.0"
-                        text="Paste">
+                <Button fx:id="copyPaste" mnemonicParsing="false" onAction="#onPaste" prefHeight="38.0" text="Paste">
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Region HBox.hgrow="ALWAYS"/>
-                <Button fx:id="decrypt" mnemonicParsing="false" onAction="#onDecrypt" prefHeight="38.0" prefWidth="67.0"
-                        text="Decrypt">
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="decrypt" mnemonicParsing="false" onAction="#onDecrypt" prefHeight="38.0" text="Decrypt">
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Region prefHeight="38.0" prefWidth="4.0" HBox.hgrow="ALWAYS"/>
-                <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0"
-                        prefWidth="90.0" text="Open from file">
-                    <font>
-                        <Font size="11.0"/>
-                    </font>
+                <Region prefHeight="38.0" prefWidth="4.0" HBox.hgrow="ALWAYS" />
+                <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0" text="Open from file">
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </HBox>
     </children>

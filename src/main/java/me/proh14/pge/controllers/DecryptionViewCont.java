@@ -9,7 +9,7 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import me.proh14.pge.Main;
-import me.proh14.pge.encryptions.XOREncryption;
+import me.proh14.pge.encryptions.AESEncryption;
 
 public class DecryptionViewCont {
 
@@ -37,11 +37,11 @@ public class DecryptionViewCont {
             copyPaste.setText("Copy");
             decrypt.setText("Open Encryptor");
             filePicker.setText("Save to file");
-            inputText.setText(XOREncryption.getInstance().encryptDecrypt(inputText.getText()));
+            inputText.setText(AESEncryption.getInstance().decrypt(inputText.getText()));
             isDecrypted = true;
         } else {
             Stage stage = (Stage) decrypt.getScene().getWindow();
-            stage.setScene(Main.getDecryptionScene());
+            stage.setScene(Main.getEncryptionScene());
             stage.setTitle("PGE - Decryptor");
             stage.sizeToScene();
             stage.centerOnScreen();
@@ -59,7 +59,7 @@ public class DecryptionViewCont {
         if (!isDecrypted) {
             if (clipboard.hasString())
                 inputText.setText(clipboard.getString());
-        }else {
+        } else {
             ClipboardContent content = new ClipboardContent();
             content.putString(inputText.getText());
 
@@ -68,7 +68,8 @@ public class DecryptionViewCont {
     }
 
     public void onUndoDecryption(ActionEvent event) {
-        inputText.setText(XOREncryption.getInstance().encryptDecrypt(inputText.getText()));
+        isDecrypted = false;
+        inputText.setText(AESEncryption.getInstance().encrypt(inputText.getText()));
         inputText.setDisable(false);
         decrypt.setText("Decrypt");
         copyPaste.setText("Paste");

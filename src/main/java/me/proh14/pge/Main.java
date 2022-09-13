@@ -35,6 +35,10 @@ public class Main extends Application {
 
     }
 
+    public static void main(String[] args) {
+        launch();
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
@@ -49,10 +53,6 @@ public class Main extends Application {
         Main.encryptionScene = new Scene(encryptionLoader.load());
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 
 }

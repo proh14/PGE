@@ -9,7 +9,7 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import me.proh14.pge.Main;
-import me.proh14.pge.encryptions.XOREncryption;
+import me.proh14.pge.encryptions.AESEncryption;
 
 public class EncryptionViewCont {
 
@@ -32,7 +32,7 @@ public class EncryptionViewCont {
         if (!isEncrypted) {
             if (clipboard.hasString())
                 inputText.setText(clipboard.getString());
-        }else {
+        } else {
             ClipboardContent content = new ClipboardContent();
             content.putString(inputText.getText());
 
@@ -47,7 +47,7 @@ public class EncryptionViewCont {
             copyPaste.setText("Copy");
             encrypt.setText("Open Decryptor");
             filePicker.setText("Save to file");
-            inputText.setText(XOREncryption.getInstance().encryptDecrypt(inputText.getText()));
+            inputText.setText(AESEncryption.getInstance().encrypt(inputText.getText()));
             isEncrypted = true;
         } else {
             isEncrypted = false;
@@ -74,7 +74,8 @@ public class EncryptionViewCont {
     }
 
     public void onUndoEncryption(ActionEvent event) {
-        inputText.setText(XOREncryption.getInstance().encryptDecrypt(inputText.getText()));
+        isEncrypted = false;
+        inputText.setText(AESEncryption.getInstance().decrypt(inputText.getText()));
         inputText.setDisable(false);
         encrypt.setText("Encrypt");
         copyPaste.setText("Paste");

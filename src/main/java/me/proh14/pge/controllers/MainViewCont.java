@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import me.proh14.pge.Main;
+import me.proh14.pge.encryptions.AESEncryption;
 import me.proh14.pge.encryptions.XOREncryption;
 
 import java.net.URL;
@@ -39,10 +40,10 @@ public class MainViewCont implements Initializable {
         }
 
         if (codeMask.isSelected())
-            XOREncryption.getInstance().setKey(Long.parseLong(codeText.getText()));
+            AESEncryption.getInstance().setKey(codeText.getText());
         else
-            XOREncryption.getInstance().setKey(Long.parseLong(codeFiled.getText()));
-        System.out.println(XOREncryption.getInstance().getKey());
+            AESEncryption.getInstance().setKey(codeFiled.getText());
+        System.out.println(AESEncryption.getInstance().getKey());
         if (Main.getEncryptionScene() != null) {
             Stage stage = ((Stage) root.getScene().getWindow());
             stage.setScene(Main.getEncryptionScene());
@@ -97,24 +98,6 @@ public class MainViewCont implements Initializable {
                 codeFiled.setVisible(true);
             }
         });
-
-        codeFiled.setTextFormatter(new TextFormatter<>(c -> {
-            if (!c.getControlNewText().matches("\\d*"))
-                return null;
-            else if (c.getControlNewText().matches(".{0,15}"))
-                return c;
-
-            return null;
-        }));
-
-        codeText.setTextFormatter(new TextFormatter<>(c -> {
-            if (!c.getControlNewText().matches("\\d*"))
-                return null;
-            else if (c.getControlNewText().matches(".{0,15}"))
-                return c;
-
-            return null;
-        }));
 
 
     }

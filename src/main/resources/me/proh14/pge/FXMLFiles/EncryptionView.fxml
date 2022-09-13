@@ -1,68 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.input.KeyCodeCombination?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.proh14.pge.controllers.EncryptionViewCont">
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+      fx:controller="me.proh14.pge.controllers.EncryptionViewCont">
     <children>
         <MenuBar>
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#onClose" text="Close" />
+                        <MenuItem mnemonicParsing="false" onAction="#onClose" text="Close"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem fx:id="undoEncryption" disable="true" mnemonicParsing="false" onAction="#onUndoEncryption" text="Undo Encryption">
+                        <MenuItem fx:id="undoEncryption" disable="true" mnemonicParsing="false"
+                                  onAction="#onUndoEncryption" text="Undo Encryption">
                             <accelerator>
-                                <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP"
+                                                    shortcut="UP"/>
                             </accelerator>
                         </MenuItem>
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <TextArea fx:id="inputText" focusTraversable="false" prefHeight="411.0" promptText="Enter The text you want to encrypt here or use File Picker" VBox.vgrow="ALWAYS">
+        <TextArea fx:id="inputText" focusTraversable="false" prefHeight="411.0"
+                  promptText="Enter The text you want to encrypt here or use File Picker" VBox.vgrow="ALWAYS">
             <font>
-                <Font size="20.0" />
+                <Font size="20.0"/>
             </font>
             <cursor>
-                <Cursor fx:constant="TEXT" />
+                <Cursor fx:constant="TEXT"/>
             </cursor>
         </TextArea>
         <HBox alignment="CENTER">
             <children>
-                <Button fx:id="copyPaste" mnemonicParsing="false" onAction="#onCopyPaste" prefHeight="38.0" text="Paste">
+                <Button fx:id="copyPaste" mnemonicParsing="false" onAction="#onCopyPaste" prefHeight="38.0"
+                        text="Paste">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </Button>
-                <Region HBox.hgrow="ALWAYS" />
+                <Region HBox.hgrow="ALWAYS"/>
                 <Button fx:id="encrypt" mnemonicParsing="false" onAction="#onEncrypt" prefHeight="38.0" text="Encrypt">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </Button>
-                <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0" text="Open from file">
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="filePicker" mnemonicParsing="false" onAction="#onFilePicker" prefHeight="38.0"
+                        text="Open from file">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </Button>
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
             </padding>
         </HBox>
     </children>

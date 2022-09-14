@@ -69,7 +69,7 @@ public class MainViewCont implements Initializable {
         if (Main.getEncryptionScene() != null) {
             Stage stage = ((Stage) root.getScene().getWindow());
             stage.setTitle("PGE - Decryptor");
-            stage.setScene(Main.getEncryptionScene());
+            stage.setScene(Main.getDecryptionScene());
             stage.centerOnScreen();
             stage.sizeToScene();
         }

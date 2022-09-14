@@ -21,6 +21,7 @@ public class Main extends Application {
         stage.setScene(mainScene);
         stage.centerOnScreen();
         stage.sizeToScene();
+        stage.setTitle("PGE");
     }
 
     public static Scene getDecryptionScene() {

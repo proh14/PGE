@@ -42,7 +42,7 @@ public class DecryptionViewCont {
         } else {
             Stage stage = (Stage) decrypt.getScene().getWindow();
             stage.setScene(Main.getEncryptionScene());
-            stage.setTitle("PGE - Decryptor");
+            stage.setTitle("PGE - Encryptor");
             stage.sizeToScene();
             stage.centerOnScreen();
             inputText.setDisable(false);

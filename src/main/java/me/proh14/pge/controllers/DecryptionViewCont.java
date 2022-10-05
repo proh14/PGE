@@ -7,12 +7,16 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import me.proh14.pge.Main;
 import me.proh14.pge.encryptions.AESEncryption;
 
+import java.io.*;
+
 public class DecryptionViewCont {
 
+    private final FileChooser fileChooser = new FileChooser();
     @FXML
     public Button copyPaste;
     @FXML
@@ -23,11 +27,40 @@ public class DecryptionViewCont {
     public MenuItem undoDecryption;
     @FXML
     public Button filePicker;
-
+    private final boolean openFile = true;
     private boolean isDecrypted = false;
 
 
-    public void onFilePicker(ActionEvent event) {
+    public void onFilePicker(ActionEvent event) throws IOException {
+        if (openFile) {
+            File file = fileChooser.showOpenDialog(Main.getDecryptionScene().getWindow());
+            FileReader reader = new FileReader(file.getAbsoluteFile());
+            BufferedReader br = new BufferedReader(reader);
+            StringBuilder builder = new StringBuilder();
+            int curChar;
+            while ((curChar = br.read()) != -1) {
+                builder.append((char) curChar);
+            }
+
+            br.close();
+            reader.close();
+            inputText.setText(builder.toString());
+        } else {
+            File file = fileChooser.showSaveDialog(Main.getDecryptionScene().getWindow());
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter writer = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter wr = new BufferedWriter(writer);
+            int curChar;
+            String ourString = inputText.getText();
+
+            wr.write(ourString);
+
+
+            wr.close();
+            writer.close();
+        }
     }
 
     public void onDecrypt(ActionEvent event) {
@@ -76,6 +109,7 @@ public class DecryptionViewCont {
         filePicker.setText("Open from file");
         undoDecryption.setDisable(true);
         isDecrypted = false;
+        openFile = true;
     }
 
     public void onClose(ActionEvent event) {

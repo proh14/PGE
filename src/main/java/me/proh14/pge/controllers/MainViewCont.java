@@ -65,7 +65,6 @@ public class MainViewCont implements Initializable {
             XOREncryption.getInstance().setKey(Long.parseLong(codeText.getText()));
         else
             XOREncryption.getInstance().setKey(Long.parseLong(codeFiled.getText()));
-        System.out.println(XOREncryption.getInstance().getKey());
         if (Main.getEncryptionScene() != null) {
             Stage stage = ((Stage) root.getScene().getWindow());
             stage.setTitle("PGE - Decryptor");

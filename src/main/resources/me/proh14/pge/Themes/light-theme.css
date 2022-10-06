@@ -1,0 +1,7 @@
+* {
+    -fx-bg-color: white;
+}
+
+#root {
+    -fx-background-color: -fx-bg-color;
+}

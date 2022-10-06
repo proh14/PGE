@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="root" alignment="CENTER" prefHeight="287.0" prefWidth="233.0"
+<VBox xmlns:fx="http://javafx.com/fxml/1" id="root" fx:id="root" alignment="CENTER" prefHeight="287.0" prefWidth="233.0"
       spacing="8.0" xmlns="http://javafx.com/javafx/18"
       fx:controller="me.proh14.pge.controllers.MainViewCont">
     <children>

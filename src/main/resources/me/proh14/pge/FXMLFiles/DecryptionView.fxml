@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+      id="root"
       fx:controller="me.proh14.pge.controllers.DecryptionViewCont">
     <children>
         <MenuBar>

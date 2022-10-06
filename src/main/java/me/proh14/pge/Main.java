@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import me.proh14.pge.utils.Theme;
+import me.proh14.pge.utils.ThemeManager;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -45,13 +47,16 @@ public class Main extends Application {
         Main.stage = stage;
         FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("FXMLFiles/MainView.fxml"));
         Scene scene = new Scene(mainLoader.load());
-        Main.mainScene = scene;
+        ThemeManager.setTheme(Theme.LIGHT, scene);
+        mainScene = scene;
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("Images/ApplicationIcons/50x50.png")).toExternalForm()));
         stage.setTitle("PGE");
         FXMLLoader decryptionLoader = new FXMLLoader(getClass().getResource("FXMLFiles/DecryptionView.fxml"));
         FXMLLoader encryptionLoader = new FXMLLoader(getClass().getResource("FXMLFiles/EncryptionView.fxml"));
-        Main.decryptionScene = new Scene(decryptionLoader.load());
-        Main.encryptionScene = new Scene(encryptionLoader.load());
+        decryptionScene = new Scene(decryptionLoader.load());
+        encryptionScene = new Scene(encryptionLoader.load());
+        ThemeManager.setTheme(Theme.LIGHT, decryptionScene);
+        ThemeManager.setTheme(Theme.LIGHT, encryptionScene);
         stage.setScene(scene);
         stage.show();
     }

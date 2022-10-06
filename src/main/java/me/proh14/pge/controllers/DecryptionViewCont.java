@@ -27,7 +27,7 @@ public class DecryptionViewCont {
     public MenuItem undoDecryption;
     @FXML
     public Button filePicker;
-    private final boolean openFile = true;
+    private boolean openFile = true;
     private boolean isDecrypted = false;
 
 

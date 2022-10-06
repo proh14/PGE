@@ -15,7 +15,7 @@ import java.util.Base64;
 
 public class AESEncryption {
 
-    private static final String saltValue = Keys.slatKey;
+    private static final String saltValue = Keys.saltKey;
     private static String key = "";
     private static AESEncryption instance;
 

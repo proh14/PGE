@@ -1,5 +1,5 @@
 * {
-    -fx-bg-color: white;
+    -fx-bg-color: #3C3F41;
     -fx-accent: #2196F3;
 }
 
@@ -13,20 +13,20 @@
 
 .text-field {
     -fx-background-color: -fx-bg-color;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-border-style: solid;
     -fx-border-width: 1px;
-    -fx-border-color: lightgray;
+    -fx-border-color: #313335;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
 
 .password-field {
     -fx-background-color: -fx-bg-color;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-border-style: solid;
     -fx-border-width: 1px;
-    -fx-border-color: lightgray;
+    -fx-border-color: #313335;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
@@ -34,7 +34,7 @@
 .text-area {
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-background-color: -fx-bg-color;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .menu .label {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .menu-item {
@@ -65,7 +65,7 @@
 }
 
 .menu-item .label {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .menu-item:focused,
@@ -74,14 +74,8 @@
      -fx-background-color: -fx-accent;
 }
 
-.menu-item:focused .label,
-.menu-item:showing .label,
-.menu-item:hover .label {
-    -fx-text-fill: white;
-}
-
 .check-box {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .check-box .box {
@@ -89,7 +83,7 @@
     -fx-border-style: solid;
     -fx-border-width: 1px;
     -fx-border-radius: 3px;
-    -fx-border-color: lightgray;
+    -fx-border-color: #313335;
 }
 
 .check-box:selected .box .mark {

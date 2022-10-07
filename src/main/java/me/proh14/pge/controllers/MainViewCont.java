@@ -3,6 +3,7 @@ package me.proh14.pge.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -13,6 +14,8 @@ import javafx.stage.Stage;
 import me.proh14.pge.Main;
 import me.proh14.pge.encryptions.AESEncryption;
 import me.proh14.pge.encryptions.XOREncryption;
+import me.proh14.pge.utils.Theme;
+import me.proh14.pge.utils.ThemeManager;
 
 import java.net.URL;
 import java.util.Objects;
@@ -22,6 +25,7 @@ public class MainViewCont implements Initializable {
 
     private final ImageView eye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/eye.png")).toExternalForm());
     private final ImageView closedEye = new ImageView(Objects.requireNonNull(getClass().getResource("/me/proh14/pge/Images/closed-eye.png")).toExternalForm());
+
     @FXML
     private VBox root;
     @FXML
@@ -30,6 +34,8 @@ public class MainViewCont implements Initializable {
     private ToggleButton codeMask;
     @FXML
     private TextField codeText;
+    @FXML
+    private CheckBox darkModeCheckBox;
 
     public void onEncryptBtn(ActionEvent e) {
         if ((codeMask.isSelected() && codeText.getText().isEmpty()) || (!codeMask.isSelected() && codeFiled.getText().isEmpty())) {
@@ -98,7 +104,17 @@ public class MainViewCont implements Initializable {
             }
         });
 
-
+        darkModeCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                ThemeManager.setTheme(Theme.DARK, Main.getMainScene());
+                ThemeManager.setTheme(Theme.DARK, Main.getEncryptionScene());
+                ThemeManager.setTheme(Theme.DARK, Main.getDecryptionScene());
+            }else {
+                ThemeManager.setTheme(Theme.LIGHT, Main.getMainScene());
+                ThemeManager.setTheme(Theme.LIGHT, Main.getEncryptionScene());
+                ThemeManager.setTheme(Theme.LIGHT, Main.getDecryptionScene());
+            }
+        });
     }
 
 }

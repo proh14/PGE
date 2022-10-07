@@ -4,7 +4,8 @@ import java.util.Objects;
 
 public enum Theme {
 
-    LIGHT("light", Objects.requireNonNull(Theme.class.getResource("/me/proh14/pge/Themes/light-theme.css")).toExternalForm());
+    LIGHT("light", Objects.requireNonNull(Theme.class.getResource("/me/proh14/pge/Themes/light-theme.css")).toExternalForm()),
+    DARK("dark", Objects.requireNonNull(Theme.class.getResource("/me/proh14/pge/Themes/dark-theme.css")).toExternalForm());
 
     private final String name, path;
 

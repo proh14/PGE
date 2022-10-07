@@ -3,7 +3,6 @@ package me.proh14.pge.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -105,15 +104,10 @@ public class MainViewCont implements Initializable {
         });
 
         darkModeCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                ThemeManager.setTheme(Theme.DARK, Main.getMainScene());
-                ThemeManager.setTheme(Theme.DARK, Main.getEncryptionScene());
-                ThemeManager.setTheme(Theme.DARK, Main.getDecryptionScene());
-            }else {
-                ThemeManager.setTheme(Theme.LIGHT, Main.getMainScene());
-                ThemeManager.setTheme(Theme.LIGHT, Main.getEncryptionScene());
-                ThemeManager.setTheme(Theme.LIGHT, Main.getDecryptionScene());
-            }
+            if (newValue)
+                ThemeManager.setTheme(Theme.DARK, Main.getMainScene(), Main.getEncryptionScene(), Main.getDecryptionScene());
+            else
+                ThemeManager.setTheme(Theme.LIGHT, Main.getMainScene(), Main.getEncryptionScene(), Main.getDecryptionScene());
         });
     }
 

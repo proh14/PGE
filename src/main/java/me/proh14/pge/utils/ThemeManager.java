@@ -14,4 +14,9 @@ public final class ThemeManager {
             stylesheets.set(0, theme.getPath());
     }
 
+    public static void setTheme(Theme theme, Scene... scenes) {
+        for (Scene scene : scenes)
+            setTheme(theme, scene);
+    }
+
 }

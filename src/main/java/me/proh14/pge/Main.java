@@ -53,7 +53,6 @@ public class Main extends Application {
         Main.stage = stage;
         FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("FXMLFiles/MainView.fxml"));
         Scene scene = new Scene(mainLoader.load());
-        ThemeManager.setTheme(Theme.LIGHT, scene);
         mainScene = scene;
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("Images/ApplicationIcons/50x50.png")).toExternalForm()));
         stage.setTitle("PGE");
@@ -61,8 +60,7 @@ public class Main extends Application {
         FXMLLoader encryptionLoader = new FXMLLoader(getClass().getResource("FXMLFiles/EncryptionView.fxml"));
         decryptionScene = new Scene(decryptionLoader.load());
         encryptionScene = new Scene(encryptionLoader.load());
-        ThemeManager.setTheme(Theme.LIGHT, decryptionScene);
-        ThemeManager.setTheme(Theme.LIGHT, encryptionScene);
+        ThemeManager.setTheme(Theme.LIGHT, mainScene, encryptionScene, decryptionScene);
         stage.setScene(scene);
         stage.show();
     }

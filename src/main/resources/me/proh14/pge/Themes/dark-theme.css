@@ -1,6 +1,5 @@
 * {
     -fx-bg-color: #3C3F41;
-    -fx-accent: #2196F3;
 }
 
 #root {
@@ -29,6 +28,10 @@
     -fx-border-color: #313335;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
+}
+
+.text-area .content {
+    -fx-background-radius: 0 ;
 }
 
 .text-area {
@@ -91,7 +94,8 @@
 }
 
 .button {
-    -fx-background-color: -fx-accent;
+    -fx-background-color:  -fx-bg-color;
+    -fx-border-color: #313336;
     -fx-background-radius: 5px;
     -fx-text-fill: white;
 }

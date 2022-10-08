@@ -68,6 +68,10 @@
     -fx-text-fill: black;
 }
 
+.text-area .content {
+    -fx-background-radius: 0 ;
+}
+
 .menu-item:focused,
 .menu-item:showing,
 .menu-item:hover {
@@ -97,7 +101,8 @@
 }
 
 .button {
-    -fx-background-color: -fx-accent;
+    -fx-background-color: -fx-bg-color;
+    -fx-border-color: #d6d6d6;
     -fx-background-radius: 5px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }

@@ -54,21 +54,20 @@ public class EncryptionViewCont {
             inputText.setText(AESEncryption.getInstance().encrypt(inputText.getText()));
             isEncrypted = true;
             openFile = false;
-
         } else {
             isEncrypted = false;
-            Stage stage = (Stage) encrypt.getScene().getWindow();
-            stage.setTitle("PGE - Decryptor");
-            stage.setScene(Main.getDecryptionScene());
-            stage.sizeToScene();
-            stage.centerOnScreen();
+            openFile = true;
             inputText.setDisable(false);
             inputText.clear();
             encrypt.setText("Encrypt");
             copyPaste.setText("Paste");
             filePicker.setText("Open from file");
-            openFile = true;
 
+            Stage stage = (Stage) encrypt.getScene().getWindow();
+            stage.setTitle("PGE - Decryptor");
+            stage.setScene(Main.getDecryptionScene());
+            stage.sizeToScene();
+            stage.centerOnScreen();
         }
 
     }
@@ -90,16 +89,11 @@ public class EncryptionViewCont {
             inputText.setText(builder.toString());
         } else {
             File file = fileChooser.showSaveDialog(Main.getDecryptionScene().getWindow());
-            if (!file.exists()) {
-                file.createNewFile();
-            }
             FileWriter writer = new FileWriter(file.getAbsoluteFile());
             BufferedWriter wr = new BufferedWriter(writer);
-            int curChar;
             String ourString = inputText.getText();
 
             wr.write(ourString);
-
 
             wr.close();
             writer.close();
@@ -109,18 +103,25 @@ public class EncryptionViewCont {
 
 
     public void onClose(ActionEvent event) {
+//        isEncrypted = false;
+//        openFile = true;
+//        inputText.setDisable(false);
+//        inputText.clear();
+//        encrypt.setText("Encrypt");
+//        copyPaste.setText("Paste");
+//        filePicker.setText("Open from file");
+
         Main.setToMainScene();
     }
 
     public void onUndoEncryption(ActionEvent event) {
         isEncrypted = false;
+        openFile = true;
         inputText.setText(AESEncryption.getInstance().decrypt(inputText.getText()));
+        undoEncryption.setDisable(true);
         inputText.setDisable(false);
         encrypt.setText("Encrypt");
         copyPaste.setText("Paste");
         filePicker.setText("Open from file");
-        undoEncryption.setDisable(true);
-        openFile = true;
-
     }
 }

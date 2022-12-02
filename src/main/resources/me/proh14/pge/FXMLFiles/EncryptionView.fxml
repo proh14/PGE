@@ -19,7 +19,10 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#onClose" text="Close" />
+                        <MenuItem mnemonicParsing="false" onAction="#onClose" text="Close">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">

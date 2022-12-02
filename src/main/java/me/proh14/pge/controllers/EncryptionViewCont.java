@@ -76,13 +76,14 @@ public class EncryptionViewCont {
 
         if (openFile) {
             File file = fileChooser.showOpenDialog(Main.getDecryptionScene().getWindow());
+            if (file == null)
+                return;
             FileReader reader = new FileReader(file.getAbsoluteFile());
             BufferedReader br = new BufferedReader(reader);
             StringBuilder builder = new StringBuilder();
-            int curChar;
-            while ((curChar = br.read()) != -1) {
-                builder.append((char) curChar);
-            }
+            String line;
+            while ((line = br.readLine()) != null)
+                builder.append(line).append('\n');
 
             br.close();
             reader.close();

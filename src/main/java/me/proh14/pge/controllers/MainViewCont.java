@@ -48,7 +48,6 @@ public class MainViewCont implements Initializable {
             AESEncryption.getInstance().setKey(codeText.getText());
         else
             AESEncryption.getInstance().setKey(codeFiled.getText());
-        System.out.println(AESEncryption.getInstance().getKey());
         if (Main.getEncryptionScene() != null) {
             Stage stage = ((Stage) root.getScene().getWindow());
             stage.setScene(Main.getEncryptionScene());

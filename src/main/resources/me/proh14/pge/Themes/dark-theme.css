@@ -96,6 +96,7 @@
 .button {
     -fx-background-color:  -fx-bg-color;
     -fx-border-color: #313336;
+    -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-text-fill: white;
 }

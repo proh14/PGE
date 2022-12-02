@@ -91,14 +91,12 @@ public class MainViewCont implements Initializable {
             if (newValue) {
                 codeMask.setGraphic(eye);
                 codeFiled.setVisible(false);
-                if (!codeFiled.getText().isEmpty())
-                    codeText.setText(codeFiled.getText());
+                codeText.setText(codeFiled.getText());
                 codeText.setVisible(true);
             } else {
                 codeMask.setGraphic(closedEye);
                 codeText.setVisible(false);
-                if (!codeText.getText().isEmpty())
-                    codeFiled.setText(codeText.getText());
+                codeFiled.setText(codeText.getText());
                 codeFiled.setVisible(true);
             }
         });

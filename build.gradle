@@ -47,7 +47,7 @@ test {
 }
 
 jlink {
-    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    imageZip = project.file("${buildDir}/distributions/${project.name}-${project.version}-${javafx.platform.classifier}.zip")
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
         name = 'app'
@@ -73,7 +73,7 @@ jlink {
             ]
         }
         if (installerType == 'pkg') {
-            imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.png']
+            imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.ico']
         }
         if (installerType in ['deb', 'rpm']) {
             imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.png']

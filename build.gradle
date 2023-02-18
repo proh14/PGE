@@ -7,6 +7,7 @@ plugins {
 
 group 'me.proh14'
 version '1.0-SNAPSHOT'
+description 'PGE is an Encryptor program that stands for Pretty Good Encryptor'
 
 repositories {
     mavenCentral()
@@ -20,12 +21,8 @@ ext {
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-}
-
-tasks.jar {
-    manifest.attributes["Main-Class"] = "me.proh14.pge.Luncher"
 }
 
 application {
@@ -55,9 +52,56 @@ jlink {
     launcher {
         name = 'app'
     }
+
+    jpackage {
+        installerName = project.name
+        imageName = project.name
+        vendor = 'Proh14'
+        installerOptions = [
+                '--description', project.description,
+                '--copyright', 'Copyrigth © 2023',
+                '--app-version', project.version
+        ]
+
+        installerType = project.findProperty('installerType')
+        // we will pass this from the command line (example: -PinstallerType=msi)
+        if (installerType == 'msi') {
+            imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.ico']
+            installerOptions += [
+                    '--win-per-user-install', '--win-dir-chooser',
+                    '--win-menu', '--win-shortcut'
+            ]
+        }
+        if (installerType == 'pkg') {
+            imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.png']
+        }
+        if (installerType in ['deb', 'rpm']) {
+            imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.png']
+            installerOptions += [
+                    '--linux-menu-group', 'Educational',
+                    '--linux-shortcut'
+            ]
+        }
+        if (installerType == 'deb') {
+            installerOptions += [
+                    '--linux-deb-maintainer', '@gmail.com'
+            ]
+        }
+        if (installerType == 'rpm') {
+            installerOptions += [
+                    '--linux-rpm-license-type', 'GPL-3.0'
+            ]
+        }
+    }
 }
 
 jlinkZip {
     group = 'distribution'
+}
+
+jpackage {
+    doFirst {
+        project.getProperty('installerType') // throws exception if its missing
+    }
 }
 

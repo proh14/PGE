@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'me.proh14'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 description 'PGE is an Encryptor program that stands for Pretty Good Encryptor'
 
 repositories {
@@ -84,7 +84,7 @@ jlink {
         }
         if (installerType == 'deb') {
             installerOptions += [
-                    '--linux-deb-maintainer', '@gmail.com'
+                    '--linux-deb-maintainer', 'test@gmail.com'
             ]
         }
         if (installerType == 'rpm') {

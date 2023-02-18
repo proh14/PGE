@@ -107,3 +107,23 @@
     -fx-background-radius: 5px;
     -fx-text-fill: black;
 }
+
+.dialog-pane > .button-bar > .container {
+  -fx-background-color: -fx-bg-color;
+}
+
+.dialog-pane > .content.label {
+    -fx-background-color: -fx-bg-color;
+   -fx-text-fill: black;
+}
+
+.dialog-pane:header .header-panel {
+  -fx-background-color: -fx-bg-color;
+}
+
+.dialog-pane:header .header-panel .label{
+  -fx-background-color: -fx-bg-color;
+  -fx-background-radius: 10px;
+  -fx-text-fill: black;
+  -fx-font-size: 15.0px;
+}

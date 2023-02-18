@@ -75,7 +75,7 @@ jlink {
         if (installerType == 'pkg') {
             imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.ico']
         }
-        if (installerType in ['deb', 'rpm']) {
+        if (['deb', 'rpm'].contains(installerType)) {
             imageOptions += ['--icon', 'src/main/resources/me/proh14/pge/Images/ApplicationIcons/50x50.png']
             installerOptions += [
                     '--linux-menu-group', 'Educational',

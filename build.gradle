@@ -60,7 +60,8 @@ jlink {
         installerOptions = [
                 '--description', project.description,
                 '--copyright', 'Copyrigth © 2023',
-                '--app-version', project.version
+                '--app-version', project.version,
+                '--verbose'
         ]
 
         installerType = project.findProperty('installerType')
